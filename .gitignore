@@ -48,3 +48,4 @@ next-env.d.ts
 
 # Copilot plugin temp data
 .idea/copilot.data.migration.*
+/app/generated/prisma
