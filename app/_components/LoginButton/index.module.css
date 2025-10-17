@@ -1,0 +1,20 @@
+.loginButton {
+    border-radius: 25%;
+    border: none;
+
+    /* ★★★ 2. 背景色を透明にする ★★★ */
+    /* 背景を白ではなく透明にすることで、ボタンのデフォルトの背景色が消える */
+    background-color: transparent;
+
+    /* 3. マウスカーソルをポインターにする（ボタンとしての動作を示す） */
+    cursor: pointer;
+
+    /* 4. 画像の角丸は画像のデザインに任せるため、ボタン自体のborder-radiusは不要 */
+    /* border-radius: 25%; は削除またはコメントアウト */
+
+    /* Next.js Imageコンポーネントは<img>タグを生成するため、
+       親要素に画像以外の余白が生じないように調整 */
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
