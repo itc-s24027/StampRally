@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     // 該当の問題を取得
     const { data, error } = await supabase
-        .from("questions")
+        .from("Questions")
         .select("password") // パスワードのみ取得
         .eq("id", id) // idが一致する行を探す
         .single(); // 1件だけオブジェクトを取得

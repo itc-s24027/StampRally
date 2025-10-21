@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function POST() {
     const { data, error } = await supabase
         .from("Questions")
-        .insert([{ question_text: "赤嶺先生の趣味はなんでしょう？", correct_answer: "2",　password: "question1",
+        .insert([{ question_text: "赤嶺先生の趣味はなんでしょう？", correct_answer: "2", password: "question1",
             option_a: "1. 読書", option_b: "2. キングス観戦", option_c: "3. ビリヤード", option_d: "4. 釣り" },
             { question_text: "仲宗根先生の好きな猫種はなんでしょう？", correct_answer: "3", password: "question2",
             option_a: "1. アメリカンショートヘアー", option_b: "2. メインクーン", option_c: "3. サイアミーズ", option_d: "4. アビシニアン" },
