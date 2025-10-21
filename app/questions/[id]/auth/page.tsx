@@ -1,3 +1,5 @@
+// パスワード認証画面
+
 "use client";
 
 import { use } from "react";

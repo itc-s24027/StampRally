@@ -1,3 +1,5 @@
+// 問題詳細画面
+
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -11,6 +13,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
     const cookieStore = await cookies();
     const authCookie = cookieStore.get(`auth_question_${id}`);
 
+    // 認証用クッキーがない場合、パスワード要求画面へリダイレクト
     if (!authCookie || !authCookie.value) {
         redirect(`/questions/${id}/auth`);
     }
