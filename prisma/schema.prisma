@@ -13,6 +13,10 @@ model User {
   name          String?
   email         String?   @unique
 
+  // NextAuthの標準フィールドなので追加する
+  image         String?   // 追加
+  emailVerified DateTime? // 追加
+
   // 時間情報
   created_at    DateTime  @default(now()) @db.Timestamptz(6) // ユーザー登録日時
   total_time    Int?      // 合計時間（秒）
