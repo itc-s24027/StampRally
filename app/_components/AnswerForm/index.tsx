@@ -33,7 +33,7 @@ export default function AnswerForm({data}: dataType) {
         formData.append("questionId", String(data.id));
         formData.append("userAnswer", selected);
         // 仮のUUID（本番は認証情報から取得してください）
-        // formData.append("userId", "00000000-0000-0000-0000-000000000000");
+        formData.append("userId", "00000000-0000-0000-0000-000000000000");
 
         try {
             const res = await fetch("/api/record/answer", {
@@ -52,37 +52,37 @@ export default function AnswerForm({data}: dataType) {
     }
 
     return (
-        <main style={{ padding: "2rem" }}>
+        <main className="text-center">
             <h1>問題 {data.id}</h1>
             <p style={{fontSize:"1.2rem", margin: "1rem 0"}}>{data.question_text}</p>
             <form onSubmit={handleSubmit}>
                 <input type="hidden" name="id" value={data.id} />
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                    <input type="radio" name="answer" value="1" checked={selected==="1"} onChange={handleChange} /> {data.option_a}
+                    <input type="radio" name="answer" value="1" checked={selected==="1"} onChange={handleChange} className="form-check-input"/> {data.option_a}
                 </label>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                    <input type="radio" name="answer" value="2" checked={selected==="2"} onChange={handleChange} /> {data.option_b}
+                    <input type="radio" name="answer" value="2" checked={selected==="2"} onChange={handleChange} className="form-check-input"/> {data.option_b}
                 </label>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                    <input type="radio" name="answer" value="3" checked={selected==="3"} onChange={handleChange} /> {data.option_c}
+                    <input type="radio" name="answer" value="3" checked={selected==="3"} onChange={handleChange} className="form-check-input"/> {data.option_c}
                 </label>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                    <input type="radio" name="answer" value="4" checked={selected==="4"} onChange={handleChange} /> {data.option_d}
+                    <input type="radio" name="answer" value="4" checked={selected==="4"} onChange={handleChange} className="form-check-input"/> {data.option_d}
                 </label>
                 <button
                     type="submit"
-                    className="btn btn-outline-primary"
+                    className="btn btn-outline-secondary mx-2"
                     disabled={!selected}
                 >
                     回答を送信
                 </button>
+                <BackListButton onClick={() => router.push('http://localhost:3000/questions')} />
             </form>
             {result && (
                 <div style={{marginTop: "1rem", fontWeight: "bold"}}>
                     {result}
                 </div>
             )}
-            <BackListButton onClick={() => router.push('http://localhost:3000/questions')} />
         </main>
     )
 }
