@@ -42,6 +42,11 @@ model Account {
   refresh_token     String? // 期限切れのaccess_tokenを再ログインなしで新しく交換するトークン
   expires_at        Int?  // access_tokenの有効期限(UNIXタイムスタンプ)
 
+
+  scope             String? @db.Text
+  token_type        String?
+  id_token          String? @db.Text
+
   // Userとのリレーション
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   @@unique([provider, providerAccountId])
