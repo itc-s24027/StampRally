@@ -13,6 +13,10 @@ model User {
   name          String?
   email         String?   @unique
 
+  // NextAuthの標準フィールドなので追加する
+  image         String?   // 追加
+  emailVerified DateTime? // 追加
+
   // 時間情報
   created_at    DateTime  @default(now()) @db.Timestamptz(6) // ユーザー登録日時
   total_time    Int?      // 合計時間（秒）
@@ -37,6 +41,11 @@ model Account {
   access_token      String? // google(gmail api)のアクセスに必要なトークン
   refresh_token     String? // 期限切れのaccess_tokenを再ログインなしで新しく交換するトークン
   expires_at        Int?  // access_tokenの有効期限(UNIXタイムスタンプ)
+
+
+  scope             String? @db.Text
+  token_type        String?
+  id_token          String? @db.Text
 
   // Userとのリレーション
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
