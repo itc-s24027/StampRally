@@ -2,8 +2,7 @@
 
 import React, { useState } from "react"
 import {BackListButton} from "@/app/_components/BackListButton";
-import {router} from "next/client";
-
+import { useRouter } from 'next/navigation'
 type dataType = {
     data: {
         id: number,
@@ -19,6 +18,8 @@ type dataType = {
 export default function AnswerForm({data}: dataType) {
     const [selected, setSelected] = useState<string>("");
     const [result, setResult] = useState<string>("");
+
+    const router = useRouter()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelected(e.target.value);
@@ -81,7 +82,7 @@ export default function AnswerForm({data}: dataType) {
                     {result}
                 </div>
             )}
-            <BackListButton onClick={() => router.push('../')} />
+            <BackListButton onClick={() => router.push('http://localhost:3000/questions')} />
         </main>
     )
 }
