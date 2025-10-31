@@ -30,7 +30,7 @@ export async function GET() {
     try {
         const { data, error } = await supabaseAdmin
             .from("Questions")
-            .select("id, question_text, created_at, updated_at, option_a, option_b, option_c, option_d");
+            .select("id");
         if (error) throw error;
         return NextResponse.json(data);
     } catch (err: unknown) {
