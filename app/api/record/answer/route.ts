@@ -86,3 +86,34 @@ export async function POST(request: Request) {
         }, { status: 200 });
 
 }
+
+export async function GET(request: Request) {
+    const userId = await getUserIdSimple(request);
+    if (!userId) {
+        return NextResponse.json(
+            { success: false, error: "userId が取得できません" },
+            { status: 401 }
+        );
+    }
+
+    const { data, error } = await supabaseAdmin
+        .from("Stamps")
+        .select("questions_id, obtained")
+        .eq("user_id", userId);
+
+    if (error) {
+        console.error("スタンプ取得エラー:", error);
+        return NextResponse.json(
+            { success: false, error: "スタンプ取得に失敗しました" },
+            { status: 500 }
+        );
+    }
+
+    return NextResponse.json({
+        success: true,
+        stamps: data.map((s) => ({
+            id: s.questions_id,
+            result: s.obtained,
+        })),
+    });
+}
