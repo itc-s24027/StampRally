@@ -12,7 +12,7 @@ export default function QuestionsPage() {
 
     useEffect(() => {
         const fetchQuestions = async () => {
-            const res = await fetch("/api/test"); // Supabaseから取るAPI
+            const res = await fetch("/api/questionRegistry"); // Supabaseから取るAPI
             const data = await res.json();
             setQuestions(data.data || []);
             setLoading(false);
@@ -44,12 +44,3 @@ export default function QuestionsPage() {
         </main>
     );
 }
-
-
-
-
-
-
-
-
-
