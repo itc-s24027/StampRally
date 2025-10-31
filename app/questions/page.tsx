@@ -56,7 +56,7 @@ export default function QuestionsPage() {
                         onClick={() => {
                             if(isDone) {return}
                             router.push(`/questions/${q.id}`)}}
-                        className="btn border-0 w-25 h-25"
+                        className="btn border-0 w-50 h-50"
                     >
                         <div className="card">
                             <div className={`card-img ${isDone ? "bg-success-subtle" :""} text-muted`}>
