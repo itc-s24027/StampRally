@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QuestionDTO } from "@/lib/types";
 import LogoutBotton from "@/app/_components/LogoutBotton";
-import Image from "next/image";
 
 export type Stamp = {
     id: number;
@@ -35,7 +34,6 @@ export default function QuestionsPage() {
         const fetchQuestions = async () => {
             const res = await fetch("/api/questionRegistry"); // Supabaseから取るAPI
             const data = await res.json();
-            console.dir(data)
             setQuestions(data || []);
             setLoading(false);
         };
@@ -46,25 +44,30 @@ export default function QuestionsPage() {
     return (
         <main className="text-center">
             <h1 className="text-2xl font-bold mb-4">問題一覧</h1>
-            {questions.map((q) => (
-                <button
-                    key={q.id}
-                    onClick={() => {
-                        if(stamps[(q.id)-1].result) {return}
-                        router.push(`/questions/${q.id}`)}}
-                    className="btn border-0 w-25 h-25"
-                >
-                    {/*<p>{q.question_text}</p>*/}
-                    <div className="card">
-                        <div className={`card-img ${stamps[(q.id)-1].result ? "bg-success-subtle" :""} text-muted`}>
-                            {q.id}F
-                            <h5 className="card-title">第{q.id}問</h5>
+            {
+                questions.map((q) => {
+                const qId = Number(q.id);
+                const foundStamp = Number.isNaN(qId) ? undefined : stamps.find((s) => s.id === qId);
+                const isDone = foundStamp?.result ?? false;
+
+                return (
+                    <button
+                        key={q.id}
+                        onClick={() => {
+                            if(isDone) {return}
+                            router.push(`/questions/${q.id}`)}}
+                        className="btn border-0 w-25 h-25"
+                    >
+                        <div className="card">
+                            <div className={`card-img ${isDone ? "bg-success-subtle" :""} text-muted`}>
+                                {q.id}F
+                                <h5 className="card-title">第{q.id}問</h5>
+                            </div>
                         </div>
-                    </div>
-                </button>
-            ))}
+                    </button>
+                )
+            })}
             <br/>
             <LogoutBotton/>
         </main>
-    );
-}
+    )}
