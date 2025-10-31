@@ -82,6 +82,7 @@ export default function AnswerForm({data}: dataType) {
                     回答を送信
                 </button>
             </form>
+            {result && <p style={{ color: "red", marginTop: "10px" }}>{result}</p>}
         </main>
     )
 }
