@@ -7,7 +7,7 @@ type Props = {
     id: number;
 }
 
-export default function Correct({id}: Props) {
+export default function Incorrect({id}: Props) {
     const router = useRouter()
     return (
         <div className="text-center">

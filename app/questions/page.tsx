@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QuestionDTO } from "@/lib/types";
 import LogoutBotton from "@/app/_components/LogoutBotton";
+import CompleteModal from "@/app/_components/Complete";
 
 export type Stamp = {
     id: number;
@@ -14,6 +15,7 @@ export default function QuestionsPage() {
     const [questions, setQuestions] = useState<QuestionDTO[]>([]);
     const [stamps, setStamps] = useState<Stamp[]>([]);
     const [loading, setLoading] = useState(true);
+    const [showComplete, setShowComplete] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
@@ -39,10 +41,19 @@ export default function QuestionsPage() {
         fetchData();
     }, []);
 
+    // ✅ スタンプ6個でモーダルを表示
+    useEffect(() => {
+        if (stamps.filter((s) => s.result).length === 6) {
+            setShowComplete(true);
+        }
+    }, [stamps]);
+
     if (loading) return <p>読み込み中...</p>;
 
     return (
         <main className="text-center">
+            <h1 className="text-2xl font-bold m-4 ">問題一覧</h1>
+
             <h1 className="text-2xl font-bold mb-4"><span className="fs-4">縺懊ｓ縺ｶ縺ｧ</span>問題一覧<span className="fs-4">縺ｪ縺ｪ繧ゅｓ</span></h1>
             {questions.map((q) => {
                 const qId = Number(q.id);
@@ -71,8 +82,25 @@ export default function QuestionsPage() {
                     </button>
                 );
             })}
+
             <br />
-            <LogoutBotton />
+            {/*<LogoutBotton />*/}
+
+            {/* 🎉 モーダルを手動で出すボタン */}
+            {stamps.filter((s) => s.result).length === 6 && (
+                <button
+                    className="btn btn-outline-secondary mt-3"
+                    onClick={() => setShowComplete(true)}
+                >
+                    コンプリート画面を確認する
+                </button>
+            )}
+
+            {/* 🎉 コンプリートモーダル */}
+            <CompleteModal
+                show={showComplete}
+                onClose={() => setShowComplete(false)}
+            />
         </main>
     );
 }

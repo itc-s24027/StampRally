@@ -47,7 +47,7 @@ export default function AnswerForm({question, userId}: AnswerFormProps) {
             const json = await res.json();
             if (json.success) {
                 if(!json.is_correct) {
-                    router.push('/questions/incorrect')
+                    router.push(`/questions/incorrect?questionId=${question.id}`)
                     return;
                 }
                 router.push('/questions/correct')
