@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import NextAuthProvider from "@/app/providers/SessionProvider";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: Readonly<{
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="http://stamp-rally-nu.vercel.app/questions">👻スタンプラリー💫</a>
+                <Link className="navbar-brand" href="/questions">👻スタンプラリー💫</Link>
             </div>
         </nav>
         <NextAuthProvider>
