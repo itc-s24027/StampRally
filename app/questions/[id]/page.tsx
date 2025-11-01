@@ -1,5 +1,5 @@
 // 問題詳細画面
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import AnswerForm from "@/app/_components/AnswerForm";
 
@@ -27,7 +27,8 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
     //     .eq("id", id)
     //     .single();
 
-    const res = await fetch(`/api/questions/${id}`)
+    const host = (await headers()).get("host");
+    const res = await fetch(`http://${host}/api/questions/${id}`)
     const data = await res.json().catch(() => null);
 
     if (!res.ok) {
