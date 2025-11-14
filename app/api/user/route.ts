@@ -1,7 +1,7 @@
 /* user/route.ts (ユーザー登録の存在確認と新規登録)
    user/register/route.ts (Googleアカウントの登録)
    → user/route.tsに統合した
- */
+*/
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server"; // jsonレスポンスを返す

@@ -1,8 +1,6 @@
 "use client"
 
 import React, { useState } from "react"
-import { useSession } from "next-auth/react"
-import {BackListButton} from "@/app/_components/BackListButton";
 import { QuestionDTO } from '@/lib/types';
 import { useRouter } from 'next/navigation'
 
@@ -16,7 +14,6 @@ export default function AnswerForm({question, userId}: AnswerFormProps) {
     const [selected, setSelected] = useState<string>("");
     const [result, setResult] = useState<string>("");
 
-    const { data: session } = useSession()
     const router = useRouter()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

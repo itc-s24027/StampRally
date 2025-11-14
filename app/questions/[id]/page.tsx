@@ -20,13 +20,6 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 
     const userId = authCookie.value ?? ""; // クッキーからユーザーIDを取得
 
-    //  Supabase から問題データを取得
-    // const { data, error } = await supabase
-    //     .from("Questions")
-    //     .select("*")
-    //     .eq("id", id)
-    //     .single();
-
     const host = (await headers()).get("host");
     const res = await fetch(`http://${host}/api/questions/${id}`)
     const data = await res.json().catch(() => null);
