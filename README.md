@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StampRally
+制作日：2年生 10月
 
-## Getting Started
+学校のイベントで学生の出席確認を目的にしつつ、楽しんでもらうためにスタンプラリーをチームで制作しました。
 
-First, run the development server:
+## 概要
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* 主な目的としては在校生の出席確認です。その他に、イベントを楽しんでもらえるようなスタンプラリーを用意しました。
+* ITカレッジ沖縄在校生にGoogleでログインしてもらい、データベースに登録された名前で先生に出席を確認してもらいました。
+* ログイン方法は、受付にQRコード設置。各自スマートフォンで読み取ってもらいました。
+* 問題を6問用意し、各階にパスワードを設置。全問正解するとコンプリート画面が出るのでその画面を提示するとお菓子をプレゼントしました。
+また、アプリにはシークレット問題も隠されており、見事正解した学生には少し豪華なお菓子を追加でプレゼントしました。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### エピソード
+初めての授業外のチーム開発で、環境構築から手探りで開発を進めました。
+また、制作期間が2週間ということもあり、AIも活用しています。イベント当日まで徹夜でアプリ仕上げたことは良い思い出になったと同時に、チームでの開発や、アプリを0から作り上げる大変さを痛感しました。
+この経験を活かして効率の良いチーム開発ができるように、もっと開発に慣れていきたいです。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 機能
+* Googleログイン（学生の出席を確認するため）
+* クイズ形式のスタンプカード
+* 全問正解でコンプリート画面
 
-## Learn More
+### ターゲット
+* 生徒の出席確認する先生
+* イベントに参加した在学生
 
-To learn more about Next.js, take a look at the following resources:
+## 使用技術
+* Next.js
+* supabase
+* prisma
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## スクリーンショット
+↓イベント当日の様子とアプリの実際の動作を動画で載せています。
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Google ドライブ](https://drive.google.com/drive/folders/1qO_hC9rTa6K8eqa6wRpdyL7e8kYeYEbp?usp=drive_link)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
