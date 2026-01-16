@@ -27,14 +27,24 @@
 * イベントに参加した在学生
 
 ## 使用技術
-* Next.js
-* supabase
-* prisma
+
+* 言語: JavaScript, TypeScript, CSS
+* フレームワーク: Next.js 15, Bootstrap 5
+* ライブラリ: NextAuth.js
+* データベース: Supabase
+* ORM: Prisma
+* デプロイ: Vercel
 
 
 ## スクリーンショット
 ↓イベント当日の様子とアプリの実際の動作を動画で載せています。
 
+![](public/images/stampllay_img1.jpg)
 
+![](public/images/stampllay_img2.JPEG)
+
+![](public/images/stampllay_img3.JPG)
+
+![](public/images/)
 [Google ドライブ](https://drive.google.com/drive/folders/1qO_hC9rTa6K8eqa6wRpdyL7e8kYeYEbp?usp=drive_link)
 
