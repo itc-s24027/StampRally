@@ -10,13 +10,13 @@
 ## スクリーンショット
 ↓イベント当日の様子とアプリの実際の動作を動画で載せています。
 
-![](public/images/stampllay_img1.jpg)
+<img src="public/images/stampllay_img1.jpg" width="200"/>
 
-![](public/images/stampllay_img2.JPEG)
+<img src="public/images/stampllay_img2.JPEG" width="200"/>
 
-![](public/images/stampllay_img3.JPG)
+<img src="public/images/stampllay_img3.JPG" width="200"/>
 
-![](public/images/)
+
 
 [（動画）ログインから問題表示・解答](https://drive.google.com/file/d/1DliDLkwg7T3AUbsZsFdrYMZcmWzeupdJ/view?usp=sharingk)
 
