@@ -13,11 +13,15 @@
 ## スクリーンショット
 ↓イベント当日の様子とアプリの実際の動作を動画で載せています。
 
-<img src="public/images/stampllay_img1.jpg" width="200"/>
+各階にパスワード設置＆受付にQRコード設置<br>
+<img src="public/images/stampllay_img3.JPG" width="250"/>
 
-<img src="public/images/stampllay_img2.JPEG" width="200"/>
+QRコードを読み込み、問題に挑戦する生徒のみなさん<br>
+<img src="public/images/stampllay_img2.JPEG" width="250"/>
 
-<img src="public/images/stampllay_img3.JPG" width="200"/>
+
+コンプリート画面を提示で景品ゲット<br>
+<img src="public/images/stampllay_img1.jpg" width="250"/>
 
 
 
